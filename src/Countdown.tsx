@@ -13,7 +13,9 @@ import {
   BIRTH_DAY_FORMAT,
   AGE_COPIED,
   AGE_COPY_FAILED,
+  REVIEW_URL,
 } from "./translation";
+import { setAppReviewed, showRateApp } from "./storage";
 
 const animationLoop = (cb: (time: DOMHighResTimeStamp) => void) => {
   let handle: number;
@@ -52,6 +54,7 @@ export default ({
       toast.error(AGE_COPY_FAILED);
     }
   };
+  const showRateUs = showRateApp();
   return (
     <div
       style={{
@@ -136,6 +139,21 @@ export default ({
             >
               .{smallAge()}
             </div>
+            {showRateUs && REVIEW_URL && (
+              <a
+                style={{
+                  "font-size": "11.5px",
+                  "margin-bottom": "6px",
+                  "font-family": FONT_FAMILY,
+                  "margin-left": "7px",
+                  color: colorSecondary(),
+                }}
+                onClick={setAppReviewed}
+                href={REVIEW_URL}
+              >
+                Rate us on the Chrome Web Store! (click to hide)
+              </a>
+            )}
             <a
               href="https://github.com/adipascu/solid-motivation"
               style={{
