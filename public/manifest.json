@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "delete": 3,
   "name": "Solid Motivation",
   "version": "1.0.0",
   "permissions": [
